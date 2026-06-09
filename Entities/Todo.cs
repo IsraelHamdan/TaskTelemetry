@@ -1,4 +1,6 @@
-﻿namespace TaskTelemetry.Entities;
+﻿using TaskTelemetry.Enums;
+
+namespace TaskTelemetry.Entities;
 
 public class Todo
 {
@@ -7,8 +9,8 @@ public class Todo
   public string Description { get; private set; }
   public DateTime CreatedAt { get; private set; }
   public DateTime UpdatedAt { get; private set; }
-  public DateTime Deadline { get; private set; }
-  public bool IsCompleted { get; private set; }
+  public DateTimeOffset Deadline { get; private set; }
+  public TodoStatus Status { get; private set; }
   public Guid UserId { get; set; }
   public User User { get; private set; }
   
@@ -16,7 +18,7 @@ public class Todo
   {
   }
 
-  public Todo(Guid id, string title, string description, DateTime createdAt, DateTime updatedAt, DateTime deadline, bool isCompleted)
+  public Todo(Guid id, string title, string description, DateTime createdAt, DateTime updatedAt, DateTime deadline, TodoStatus status, Guid userId, User user)
   {
     Id = id;
     Title = title;
@@ -24,6 +26,8 @@ public class Todo
     CreatedAt = createdAt;
     UpdatedAt = updatedAt;
     Deadline = deadline;
-    IsCompleted = isCompleted;
+    Status = TodoStatus.Pending;
+    UserId = userId;
+    User = user;
   }
 }

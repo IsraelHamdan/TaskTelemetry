@@ -1,3 +1,4 @@
+using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using TaskTelemetry.Data;
 var builder = WebApplication.CreateBuilder(args);
@@ -9,9 +10,11 @@ builder.Services.AddDbContext<AppDbContext>(options =>
   )  
 );
 
+
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+builder.Services.AddValidatorsFromAssemblyContaining<Program>();
 
 var app = builder.Build();
 

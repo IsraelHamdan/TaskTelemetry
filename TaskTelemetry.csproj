@@ -10,6 +10,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="12.1.1" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.8">
@@ -26,6 +28,15 @@
 
   <ItemGroup>
     <Folder Include="Controllers\" />
+    <Compile Remove="TaskTelemetryTests/**" />
+    <Content Remove="TaskTelemetryTests/**" />
+    <None Remove="TaskTelemetryTests/**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="TaskTelemetry.Tests\obj\project.assets.json" />
+    <_ContentIncludedByDefault Remove="TaskTelemetry.Tests\obj\project.packagespec.json" />
+    <_ContentIncludedByDefault Remove="TaskTelemetry.Tests\obj\TaskTelemetry.Tests.csproj.nuget.dgspec.json" />
   </ItemGroup>
 
 </Project>
